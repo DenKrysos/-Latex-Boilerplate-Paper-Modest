@@ -1,0 +1,68 @@
+%==================================================================================
+% ----  Some Stuff to help during working state
+%----------------------------------------------------------------------------------
+% Disable-Wrapper. Helps to disable everything with just one Step. Remember to use it ;oP
+\expandafter\ifstrequal\expandafter{\DenKrCommentsUsage}{0}{%
+    \newcommand{\disablewr}[1]{}%
+}{%
+	\newcommand{\disablewr}[1]{#1}%
+}%
+\newcommand{\newcommanddisw}[3]{\newcommand{#1}[1]{\disablewr{{\color{#2}#3}}}}%
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+\definecolor{todocol}{named}{red}
+\newcommanddisw{\todo}{todocol}{ToDo: #1}%
+%\renewcommand{\todo}[1]{}%% Disable comments [selectively this]
+%
+\definecolor{notecol}{named}{gray}
+\newcommanddisw{\notice}{notecol}{Notice: #1}%
+%\renewcommand{\notice}[1]{}%% Disable comments [selectively this]
+%
+%
+\definecolor{denkrComCol1}{named}{violet}%
+\definecolor{denkrComCol2}{named}{purple}%
+\definecolor{denkrComCol3}{named}{blue}%
+\definecolor{denkrComCol4}{named}{ForestGreen}%
+\definecolor{denkrComCol5}{named}{orange}%
+\definecolor{denkrComCol6}{named}{brown}%
+\definecolor{denkrComCol7}{named}{Emerald}%
+\definecolor{denkrComCol8}{named}{Thistle}%
+%
+%
+\newcommanddisw{\dekrcom}{denkrComCol1}{{\#}DenKr: #1}%
+\newcommanddisw{\dekrhigh}{denkrComCol1}{#1}%
+% \renewcommand{\denkrcom}[1]{}%% Disable comments [selectively this]
+% \renewcommand{\denkrhigh}[1]{#1}%% Disable highlighting of text [selectively this]
+% \renewcommand{\denkrhigh}[1]{}%% Completely disable this kind of text [selectively this]
+\newcommand{\dkc}[1]{\dekrcom{#1}}
+%
+\newcommanddisw{\chficom}{denkrComCol3}{{\#}ChFi: #1}%
+\newcommanddisw{\mabecom}{denkrComCol4}{{\#}MaBe: #1}%
+\newcommanddisw{\chracom}{denkrComCol5}{{\#}ChRa: #1}%
+\newcommanddisw{\lubrecom}{denkrComCol7}{{\#}LuBre: #1}%
+%
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+%
+%
+%
+%
+%= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%
+\newcommand{\TempDisplayPreparation}{\disablewr{%
+	{%
+	\section{Draft-State: Comment Color Code}{\noindent\raggedright%
+	\todo{Comments: ToDos: \mbox{$\Rightarrow$ \textbackslash todo\{ \}}}\nl%
+    \notice{Comment: A general Notice: \mbox{$\Rightarrow$ \textbackslash notice\{ \}}}\nl%
+	\dekrcom{Comments: Dennis Krummacker: \mbox{$\Rightarrow$ \textbackslash dekrcom\{ \}}}\nl%
+	\chficom{Comments: Christoph Fischer: \mbox{$\Rightarrow$ \textbackslash chficom\{ \}}}\nl%
+	\mabecom{Comments: Maximilian Berndt: \mbox{$\Rightarrow$ \textbackslash mabecom\{ \}}}\nl%
+	\chracom{Comments: Christof Rauber: \mbox{$\Rightarrow$ \textbackslash chracom\{ \}}}\nl%
+	\lubrecom{Comments: Lukas Brechtel: \mbox{$\Rightarrow$ \textbackslash lubrecom\{ \}}}\nl%
+	\textbf{$\Rightarrow$ You may add such a Comment-Macro for yourself in "Denkr/DenKr\_comments.tex" if you wish $\Leftarrow$}
+    }}%
+}}%
+%----------------------------------------------------------------------------------
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%==================================================================================

@@ -1,0 +1,219 @@
+%#################################################################
+%##=========================================================######
+%##---------------------------------------------------------######
+% - - - Preamble
+%##=========================================================######
+%#################################################################
+\documentclass[%
+%	10pt,%
+	final,%final, draft, draftcls, draftclsnofoot
+	conference,% conference, journal, technote, peerreview, peerreviewca
+    comsoc,%comsoc, compsoc, transmag
+	letterpaper,% letterpaper, a4paper, cspaper
+	oneside,% oneside, twoside
+	twocolumn,% onecolumn, twocolumn % IEEE uses always twocolumn % onecolumn just for info.
+    % romanappendices,%
+    % captionsoff,%
+	nofonttune,%
+]{IEEEtran}% IEEEtran, article, 
+%
+\PassOptionsToPackage{usenames,dvipsnames,svgnames,x11names,table,prologue}{xcolor}%
+\PassOptionsToPackage{hyphens}{url}%
+\PassOptionsToPackage{nomessages}{fp}%
+\usepackage{etoolbox}%
+%
+\usepackage[german,ngerman,english]{babel}%
+\selectlanguage{english}%
+\usepackage[utf8]{inputenc}%
+\usepackage[T1]{fontenc}%
+\usepackage[babel,style=english]{csquotes}%
+%
+\usepackage{xcolor}%
+\usepackage{graphicx}%
+\graphicspath{{figures}}%
+\usepackage{url}%
+\usepackage{comment}%
+\usepackage{ifdraft}%
+\usepackage[inline]{enumitem}%
+\setlist[description]{leftmargin=0em,labelindent=1em,style=unboxed}%
+\renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\normalfont\textbf{#1}:}%
+% %  Additional new List-Style, "Enumeration-Inline-Roman" for enumerating with lower-case roman letters inline
+\newlist{enuminlrom}{enumerate*}{1}%
+\setlist[enuminlrom]{label=\textit{(\roman*)}}%
+\usepackage{xspace}% DenKr: Added this Package and put the \xspace around \dots to have the spacing behave better
+\usepackage{blindtext}
+\usepackage{tabulary}% Nearly the same as 'tabularx', bit more extensive
+\usepackage{makecell}% http://ctan.org/pkg/makecell
+\usepackage{diagbox}% package "makecell" also has a command \diaghead{}{}{}
+\usepackage{multirow}%
+\usepackage{svg}%
+
+%________________________________________________________________________
+%------------------------------------------------------------------------
+%					Acronyms, Abbreviations, Glossary  /  Abkürzungen, Glossar und weiteres
+%						glossaries
+%/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+% Glossaries muss NACH hyperref, babel, polyglossia, inputenc and fontenc geladen werden
+% Since hyperref is loaded via utilizing \AtEndPreamble{}, glossaries is also loaded in that way, where this is pastet after hyperref. (Code from \AtEndPreamble{} is executed in the order it was populated)
+% See PassOptions for fp on Top
+\AtEndPreamble{%
+\usepackage[%
+	acronym,%
+% 	nomain,%
+% 	nonumberlist,%
+	nopostdot,%
+	seeautonumberlist,%
+	shortcuts,%
+	section=chapter,%
+	toc=false,%
+]{glossaries}%
+\loadglsentries{./1supply/glossaries.tex}%
+%\glsdisablehyper% Disables Hyperlinks
+}%
+%/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+%					glossaries fertig
+%------------------------------------------------------------------------
+%________________________________________________________________________
+
+
+\ifdraft{\includecomment{guidelines}}{\excludecomment{guidelines}}
+
+\usepackage[%
+	backend=biber,%
+	style=ieee,%
+  	isbn=false,%
+  	hyperref=false,%
+  	minbibnames=2,%
+  	maxbibnames=2,%
+  	sorting=none,%
+ 	natbib=true,%
+ 	language=english,%
+ 	defernumbers=true,%
+]{biblatex}%
+\addbibresource{1supply/literature_DenKr.bib}%
+\renewcommand*{\bibfont}{\normalfont\footnotesize}%
+\DeclareFieldFormat{sentencecase}{\csname bbx@colon@search\endcsname#1}% Therewith capital letters stay capitals, when using 'style=ieee'
+%
+%
+\newcommand{\nl}{\par\noindent} % Abk. für NewLine
+% and here a command to create really a new paragraph
+% inserts an additional free line
+\newcommand{\np}{\par\vspace{\baselineskip}} % Abk. für NewParagraph
+\newcommand{\npi}{\par\vspace{\baselineskip}\noindent} % Abk. für NewParagraph_noIndent
+\newcommand{\DenKrCommentsUsage}{1}
+\input{1supply/DenKr/DenKr_comments}%
+%
+%
+%
+%
+%
+%#################################################################
+%##=========================================================######
+%##---------------------------------------------------------######
+% - - - Title Page Stuff
+%##=========================================================######
+%#################################################################
+\title{Latex Boilerplate Research-Paper/(Poster) -- Simplified Modest Variant}%
+%
+\author{%
+    \IEEEauthorblockN{
+        Dennis Krummacker\IEEEauthorrefmark{1},
+        Hans D. Schotten\IEEEauthorrefmark{1}\IEEEauthorrefmark{2}
+    }
+    \IEEEauthorblockA{\IEEEauthorrefmark{1}%
+        Intelligent Networks Research Group,
+        German Research Center for Artificial Intelligence (DFKI GmbH)
+        D-67663 Kaiserslautern.\\%
+        Email: \{%
+            dennis.krummacker,
+            hans\_dieter.schotten%
+        \}@dfki.de\\%
+    \IEEEauthorrefmark{2}%
+        Institute for Wireless Communication and Navigation,
+        University of Kaiserslautern
+        D-67663 Kaiserslautern.\\%
+        Email: \{schotten\}@eit.uni-kl.de%
+    }%
+}%
+%
+%
+%
+%
+%
+\begin{document}%
+%
+\maketitle%
+%
+%
+%#################################################################
+%##=========================================================######
+%##---------------------------------------------------------######
+% - - - Content
+%##=========================================================######
+%#################################################################
+\input{content}
+%
+%
+%
+%#################################################################
+%##=========================================================######
+%##---------------------------------------------------------######
+% - - - Postamble
+%##=========================================================######
+%#################################################################
+%
+%
+% This command serves to balance the column lengths on the last page of the document manually.
+% It shortens the textheight of the last page by a suitable amount.
+% This command does not take effect until the next page so it should come on the page before the last.
+% Make sure that you do not shorten the textheight too much.
+%\DenKrLastPageColumnBalancing{1cm}%
+%
+%
+% use section* for acknowledgment
+%#################################################################
+%##=========================================================######
+%##---------------------------------------------------------######
+\section*{Acknowledgment}%
+%##=========================================================######
+%#################################################################
+The authors acknowledge the financial support by the German \textit{Federal Ministry for Education and Research (BMBF)} within the project »Open6GHub« \{16KISK003K\}.
+%\par\noindent The list of authors is arranged in alphabetical order.
+%
+%This work is supported by the German \textit{Federal Ministry for Education and Research (BMBF)} within the project »Open 6G Hub« \{16KIS1158K\}.
+%
+%
+%
+\printbibliography
+%
+\clearpage
+% \listoftodos
+%
+%
+%#################################################################
+%##=========================================================######
+%##---------------------------------------------------------######
+% - - - Tempory active while working state.
+% -  -  -  Deactivated before \begin{document}
+%##=========================================================######
+%#################################################################
+
+\TempDisplayPreparation
+
+
+
+
+
+% \npi\notice{\begin{itemize}
+% \item%
+%     Conference Candidate:\nl%
+%     \url{}
+% \item%
+%     Deadline: 2022-
+% \item%
+%     Page limit:
+% \end{itemize}}
+% %
+% %
+% \input{followUp_Paper_Notes.tex}
+\end{document}
