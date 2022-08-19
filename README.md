@@ -3,11 +3,11 @@
 A very basic Boilerplate for writing Scientific Papers, layouted the IEEE-way.
 
 For a more sophisticated Boilerplate, see the one:<br/>
-> [https://github.com/DenKrysos/-Latex-Boilerplate_Paper](https://github.com/DenKrysos/-Latex-Boilerplate_Paper "DenKr Latex Paper/Poster-Boilerplate Sophisticated")
+> [https://github.com/DenKrysos/-Latex-Boilerplate-Paper_Poster](https://github.com/DenKrysos/-Latex-Boilerplate-Paper_Poster "DenKr Latex Paper/Poster-Boilerplate Sophisticated")
 <br/>
 
 Just saying, there is also another Boilerplate for Book-type Documents:<br/>
-> [https://github.com/DenKrysos/-Latex-Boilerplate_Book](https://github.com/DenKrysos/-Latex-Boilerplate_Book "DenKr Latex Book-Boilerplate")
+> [https://github.com/DenKrysos/-Latex-Boilerplate-Book](https://github.com/DenKrysos/-Latex-Boilerplate-Book "DenKr Latex Book-Boilerplate")
 
 
 ## Description
