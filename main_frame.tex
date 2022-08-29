@@ -29,8 +29,6 @@
 \usepackage[babel,style=english]{csquotes}%
 %
 \usepackage{xcolor}%
-\usepackage{graphicx}%
-\graphicspath{{figures}}%
 \usepackage{url}%
 \usepackage{comment}%
 \usepackage{ifdraft}%
@@ -76,23 +74,30 @@
 %________________________________________________________________________
 
 
-\ifdraft{\includecomment{guidelines}}{\excludecomment{guidelines}}
-
-\usepackage[%
-	backend=biber,%
-	style=ieee,%
-  	isbn=false,%
-  	hyperref=false,%
-  	minbibnames=2,%
-  	maxbibnames=2,%
-  	sorting=none,%
- 	natbib=true,%
- 	language=english,%
- 	defernumbers=true,%
-]{biblatex}%
-\addbibresource{1supply/literature_DenKr.bib}%
-\renewcommand*{\bibfont}{\normalfont\footnotesize}%
-\DeclareFieldFormat{sentencecase}{\csname bbx@colon@search\endcsname#1}% Therewith capital letters stay capitals, when using 'style=ieee'
+\ifdraft{\includecomment{guidelines}}{\excludecomment{guidelines}}%
+%
+%
+%________________________________________________________________________
+%------------------------------------------------------------------------
+%			IEEE Boilerplate
+%/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+\ifCLASSINFOpdf%
+  \PassOptionsToPackage{pdftex}{graphicx}%
+\else%
+  \PassOptionsToPackage{dvips}{graphicx}%
+\fi%
+\graphicspath{{figures}}%
+\usepackage{cite}%
+\ifCLASSOPTIONcompsoc%
+  \usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}%
+\else%
+  \usepackage[caption=false,font=footnotesize]{subfig}%
+\fi%
+\usepackage{url}%
+%/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+%					Boilerplate done
+%------------------------------------------------------------------------
+%________________________________________________________________________
 %
 %
 \newcommand{\nl}{\par\noindent} % Abk. für NewLine
@@ -184,7 +189,11 @@ The authors acknowledge the financial support by the German \textit{Federal Mini
 %
 %
 %
-\printbibliography
+\bibliographystyle{IEEEtran}%
+\bibliography{%
+1supply/literature.bib,%
+1supply/literature_DenKr.bib%
+}%
 %
 \clearpage
 % \listoftodos
