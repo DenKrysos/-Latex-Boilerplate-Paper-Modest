@@ -39,7 +39,7 @@
 \newlist{enuminlrom}{enumerate*}{1}%
 \setlist[enuminlrom]{label=\textit{(\roman*)}}%
 \usepackage{xspace}% DenKr: Added this Package and put the \xspace around \dots to have the spacing behave better
-\usepackage{blindtext}
+\usepackage{blindtext}%
 \usepackage{tabulary}% Nearly the same as 'tabularx', bit more extensive
 \usepackage{makecell}% http://ctan.org/pkg/makecell
 \usepackage{diagbox}% package "makecell" also has a command \diaghead{}{}{}
@@ -100,12 +100,12 @@
 %________________________________________________________________________
 %
 %
-\newcommand{\nl}{\par\noindent} % Abk. für NewLine
+\newcommand{\nl}{\par\noindent}% Abk. für NewLine
 % and here a command to create really a new paragraph
 % inserts an additional free line
-\newcommand{\np}{\par\vspace{\baselineskip}} % Abk. für NewParagraph
-\newcommand{\npi}{\par\vspace{\baselineskip}\noindent} % Abk. für NewParagraph_noIndent
-\newcommand{\DenKrCommentsUsage}{1}
+\newcommand{\np}{\par\vspace{\baselineskip}}% Abk. für NewParagraph
+\newcommand{\npi}{\par\vspace{\baselineskip}\noindent}% Abk. für NewParagraph_noIndent
+\newcommand{\DenKrCommentsUsage}{1}%
 \input{1supply/DenKr/DenKr_comments}%
 %
 %
@@ -121,11 +121,12 @@
 \title{Latex Boilerplate Research-Paper/(Poster) -- Simplified Modest Variant}%
 %
 \author{%
-    \IEEEauthorblockN{
+    \IEEEauthorblockN{%
         Dennis Krummacker\IEEEauthorrefmark{1},
         Hans D. Schotten\IEEEauthorrefmark{1}\IEEEauthorrefmark{2}
-    }
-    \IEEEauthorblockA{\IEEEauthorrefmark{1}%
+    }%
+    \IEEEauthorblockA{%
+        \IEEEauthorrefmark{1}%
         Intelligent Networks Research Group,
         German Research Center for Artificial Intelligence (DFKI GmbH)
         D-67663 Kaiserslautern.\\%
@@ -133,7 +134,7 @@
             dennis.krummacker,
             hans\_dieter.schotten%
         \}@dfki.de\\%
-    \IEEEauthorrefmark{2}%
+        \IEEEauthorrefmark{2}%
         Institute for Wireless Communication and Navigation,
         University of Kaiserslautern
         D-67663 Kaiserslautern.\\%
@@ -156,7 +157,7 @@
 % - - - Content
 %##=========================================================######
 %#################################################################
-\input{content}
+\input{content}%
 %
 %
 %
@@ -195,7 +196,7 @@ The authors acknowledge the financial support by the German \textit{Federal Mini
 1supply/literature_DenKr.bib%
 }%
 %
-\clearpage
+\clearpage%
 % \listoftodos
 %
 %
@@ -206,13 +207,13 @@ The authors acknowledge the financial support by the German \textit{Federal Mini
 % -  -  -  Deactivated before \begin{document}
 %##=========================================================######
 %#################################################################
-
-\TempDisplayPreparation
-
-
-
-
-
+%
+\TempDisplayPreparation%
+%
+%
+%
+%
+%
 % \npi\notice{\begin{itemize}
 % \item%
 %     Conference Candidate:\nl%
