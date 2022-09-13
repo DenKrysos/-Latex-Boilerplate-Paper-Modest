@@ -72,8 +72,41 @@
 %					glossaries fertig
 %------------------------------------------------------------------------
 %________________________________________________________________________
-
-
+%
+%
+%
+%
+%
+%________________________________________________________________________
+%------------------------------------------------------------------------
+%			Biblatex
+%               (Not used with IEEE, because with that, rather TeX-antive, Class-adjusted formatting shall be done)
+%/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+% \usepackage[%
+% 	backend=biber,%
+% 	style=ieee,%
+%   	isbn=false,%
+%   	hyperref=false,%
+%   	minbibnames=2,%
+%   	maxbibnames=2,%
+%   	sorting=none,%
+%  	natbib=true,%
+%  	language=english,%
+%  	defernumbers=true,%
+% ]{biblatex}%
+% \addbibresource{1supply/literature.bib}%
+% \addbibresource{1supply/literature_DenKr.bib}%
+% \renewcommand*{\bibfont}{\normalfont\footnotesize}%
+% \DeclareFieldFormat{sentencecase}{\csname bbx@colon@search\endcsname#1}% Therewith capital letters stay capitals, when using 'style=ieee'
+%/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+%			Biblatex done
+%------------------------------------------------------------------------
+%________________________________________________________________________
+%
+%
+%
+%
+%
 \ifdraft{\includecomment{guidelines}}{\excludecomment{guidelines}}%
 %
 %
@@ -190,11 +223,25 @@ The authors acknowledge the financial support by the German \textit{Federal Mini
 %
 %
 %
+%
+%
+%
+%#################################################################
+%##=========================================================######
+%##---------------------------------------------------------######
+% - - - Bibliography / References
+%---------------------------------
+% - Native, Class-adjusted
+%--------------------
 \bibliographystyle{IEEEtran}%
 \bibliography{%
 1supply/literature.bib,%
 1supply/literature_DenKr.bib%
 }%
+%---------------------------------
+% - Biblatex
+%--------------------
+% \printbibliography
 %
 \clearpage%
 % \listoftodos
