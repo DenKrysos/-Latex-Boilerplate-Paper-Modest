@@ -24,3 +24,7 @@ Some auxiliary stuff, like a Comment-function, glossaries and literature in
 
 ## Overleaf
 The Basis for this is actually an Overleaf Project. This is linked with a GitHub-Repository and every now and then synchronized to this. So the Git-Repo is actually "only" a fork of the Overleaf-Project.
+
+
+## Tips & Tricks
+Some Tricks for properly handling things -- E.g. how to handle preprints, have different layouts compiled or even work with multiple "copies" of one and the same document concurrently, i.e. manage a diverging file-tree for submission of source-files -- are given within the README.md of the more sophisticated Boilerplate. Might become in handy to consult it.
